@@ -225,21 +225,16 @@ footer{background:#001a55;padding:28px 5%;display:flex;align-items:center;justif
     <span class="badge">↩️ Troca garantida</span>
   </div>
   <div style="margin-top:24px;background:rgba(255,0,0,0.15);border:1px solid rgba(255,80,80,0.4);border-radius:12px;padding:14px 24px;display:inline-block">
-    <p style="color:#ff8a80;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:6px">⏰ Oferta por tempo limitado</p>
-    <div style="display:flex;gap:12px;justify-content:center;align-items:center">
-      <div style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:#fff;line-height:1" id="timerH">02</div><div style="font-size:10px;color:rgba(255,255,255,.6);text-transform:uppercase">horas</div></div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--amarelo)">:</div>
-      <div style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:#fff;line-height:1" id="timerM">47</div><div style="font-size:10px;color:rgba(255,255,255,.6);text-transform:uppercase">min</div></div>
-      <div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--amarelo)">:</div>
-      <div style="text-align:center"><div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:#fff;line-height:1" id="timerS">00</div><div style="font-size:10px;color:rgba(255,255,255,.6);text-transform:uppercase">seg</div></div>
-    </div>
+    <p style="color:#ff8a80;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:2px;margin-bottom:10px">⚡ Oferta Relâmpago</p>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:#fff;letter-spacing:.05em;margin-bottom:4px;">Válida até <span style="color:var(--amarelo);">30 de Abril de 2026</span></div>
+    <div style="font-size:12px;color:rgba(255,255,255,.5);">Após essa data o preço volta ao normal</div>
     <p style="color:rgba(255,255,255,.7);font-size:12px;margin-top:6px">⚡ Oferta relâmpago — <s style="color:#ff8a80">R$ 799,99</s> → <strong style="color:var(--amarelo)">R$ 149,99</strong></p>
   </div>
 </div>
 
 <div class="flag-strip"></div>
 <div style="background:#e53935;padding:10px 5%;text-align:center;position:relative">
-  <p style="color:#fff;font-size:14px;font-weight:700;letter-spacing:1px">⚡ OFERTA RELÂMPAGO — De <s style="opacity:.7">R$ 799,99</s> por apenas <strong style="font-size:18px;color:var(--amarelo)">R$ 149,99</strong> — Termina em: <span style="font-family:'Bebas Neue',sans-serif;font-size:18px" id="timerH2">--</span>:<span style="font-family:'Bebas Neue',sans-serif;font-size:18px" id="timerM2">--</span>:<span style="font-family:'Bebas Neue',sans-serif;font-size:18px" id="timerS2">--</span></p>
+  <p style="color:#fff;font-size:14px;font-weight:700;letter-spacing:1px">⚡ OFERTA RELÂMPAGO — De <s style="opacity:.7">R$ 799,99</s> por apenas <strong style="font-size:18px;color:var(--amarelo)">R$ 149,99</strong> — Válida até <strong style="color:var(--amarelo);font-size:16px;">30/04/2026</strong></p>
 </div>
 
 <div class="main">
@@ -606,23 +601,7 @@ footer{background:#001a55;padding:28px 5%;display:flex;align-items:center;justif
 (function() {
   var WORKER_URL = '/api/pix';
 
-  // Countdown offer timer (2h47m random start)
-  (function() {
-    var total = (2 * 3600) + (47 * 60) + Math.floor(Math.random() * 60);
-    function pad(n) { return String(n).padStart(2,'0'); }
-    function tick() {
-      if (total <= 0) return;
-      total--;
-      var h = Math.floor(total/3600), m = Math.floor((total%3600)/60), s = total%60;
-      var th = document.getElementById('timerH'); var th2 = document.getElementById('timerH2');
-      var tm = document.getElementById('timerM'); var tm2 = document.getElementById('timerM2');
-      var ts = document.getElementById('timerS'); var ts2 = document.getElementById('timerS2');
-      if (th) th.textContent = pad(h); if (th2) th2.textContent = pad(h);
-      if (tm) tm.textContent = pad(m); if (tm2) tm2.textContent = pad(m);
-      if (ts) ts.textContent = pad(s); if (ts2) ts2.textContent = pad(s);
-    }
-    setInterval(tick, 1000);
-  })();
+  // Oferta válida até 30/04/2026
 
   // Stock number changes per size
   var stockMap = { P: 3, M: 5, G: 7, GG: 4, XGG: 2 };
